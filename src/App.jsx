@@ -64,7 +64,8 @@
 import { useState } from "react";
 
 // Read API URL from Vite environment variables (fallback to localhost for local testing)
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "https://my-app-backend-jggx.onrender.com";
 
 function App() {
   const [email, setEmail] = useState("");
