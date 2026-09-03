@@ -43,7 +43,6 @@ app.use(
       if (isAllowed) {
         callback(null, true);
       } else {
-        // Return false instead of throwing new Error() to prevent a 500 crash
         callback(null, false);
       }
     },
@@ -53,13 +52,10 @@ app.use(
   })
 );
 
-// Explicitly handle preflight requests across all routes
-app.options("*", cors());
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Health check endpoint
+// Health check endpoint for Render
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "healthy", message: "Server is running smoothly!" });
 });
